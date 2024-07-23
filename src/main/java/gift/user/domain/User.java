@@ -1,6 +1,7 @@
 package gift.user.domain;
 
 import gift.product.domain.WishList;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,13 @@ public class User {
     private String email;
     private String password;
 
+    @Column(nullable = true)
+    private String profileImageUrl;
+
+
+    @Column(nullable = true)
+    private String kakaoId;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WishList> wishLists = new ArrayList<>();
 
@@ -31,6 +39,13 @@ public class User {
     public User(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public User(String name, String email, String profileImageUrl, String kakaoId) {
+        this.name = name;
+        this.email = email;
+        this.profileImageUrl = profileImageUrl;
+        this.kakaoId = kakaoId;
     }
 
     public Long getId() {
