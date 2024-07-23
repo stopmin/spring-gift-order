@@ -4,6 +4,7 @@ import gift.product.domain.WishList;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +19,27 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role = Role.USER;
 
+
+    @Enumerated(EnumType.STRING)
+    private LoginType loginType;
+
     private String name;
 
+    @Column(nullable = true, unique = true)
     private String email;
+
+    @Column(nullable = true)
     private String password;
+
 
     @Column(nullable = true)
     private String profileImageUrl;
 
 
     @Column(nullable = true)
-    private String kakaoId;
+    private Long kakaoId;
 
+    private LocalDateTime createdAt;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WishList> wishLists = new ArrayList<>();
 
@@ -41,9 +51,8 @@ public class User {
         this.email = email;
     }
 
-    public User(String name, String email, String profileImageUrl, String kakaoId) {
+    public User(String name, String profileImageUrl, Long kakaoId) {
         this.name = name;
-        this.email = email;
         this.profileImageUrl = profileImageUrl;
         this.kakaoId = kakaoId;
     }
@@ -90,5 +99,25 @@ public class User {
 
     public void setWishLists(List<WishList> wishLists) {
         this.wishLists = wishLists;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
+    }
+
+    public void setKakaoId(Long kakaoId) {
+        this.kakaoId = kakaoId;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setLoginType(LoginType loginType) {
+        this.loginType = loginType;
     }
 }

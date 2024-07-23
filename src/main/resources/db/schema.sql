@@ -7,7 +7,7 @@ CREATE TABLE users
     password          VARCHAR(255) NOT NULL,
     profile_image_url VARCHAR(255),
     kakao_id          BIGINT,
-    created_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE wishlist
