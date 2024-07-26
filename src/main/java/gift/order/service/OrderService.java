@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final AllimService allimService;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, AllimService allimService) {
         this.orderRepository = orderRepository;
+        this.allimService = allimService;
     }
 
-    public Order createOrder(CreateOrderRequest request) {
-        return orderRepository.save(request.toEntity());
+    public Order createOrder(CreateOrderRequest request, String accessToken) {
+        Order order = orderRepository.save(request.toEntity());
+        allimService.sendAllim(accessToken, order.toString());
+        return order;
     }
 }

@@ -7,6 +7,7 @@ import gift.util.CommonResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/api")
@@ -18,8 +19,8 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest createOrderRequest) {
-        Order order = orderService.createOrder(createOrderRequest);
+    public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest createOrderRequest, @RequestHeader String accessToken) {
+        Order order = orderService.createOrder(createOrderRequest, accessToken);
         return ResponseEntity.ok().body(new CommonResponse<>(
                 order,
                 "주문 생성 성공",
