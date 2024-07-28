@@ -13,13 +13,16 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long userId;
     private Long optionId;
     private Long quantity;
-    private Long message;
+    private String message;
 
     private final LocalDateTime orderDateTime = LocalDateTime.now();
 
-    public Order(Long optionId, Long quantity, Long message) {
+    public Order(Long userId, Long optionId, Long quantity, String message) {
+        this.userId = userId;
         this.optionId = optionId;
         this.quantity = quantity;
         this.message = message;
@@ -27,5 +30,9 @@ public class Order {
 
     public Order() {
 
+    }
+
+    public OrderCreateResponse toOrderCreateResponse() {
+        return new OrderCreateResponse(id, optionId, quantity, orderDateTime, message);
     }
 }

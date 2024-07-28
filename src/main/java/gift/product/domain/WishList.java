@@ -75,4 +75,8 @@ public class WishList {
     public void clearProducts() {
         wishListProducts.clear();
     }
+
+    public void deleteProduct(Long optionId) {
+        wishListProducts.removeIf(wishListProduct -> wishListProduct.getProductOption().getId().equals(optionId));
+    }
 }

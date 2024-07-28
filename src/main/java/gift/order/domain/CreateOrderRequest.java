@@ -3,9 +3,17 @@ package gift.order.domain;
 public class CreateOrderRequest {
     private Long optionId;
     private Long quantity;
-    private Long message;
+    private String message;
 
-    public Order toEntity() {
-        return new Order(optionId, quantity, message);
+    public Long getOptionId() {
+        return optionId;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
