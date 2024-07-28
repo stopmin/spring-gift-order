@@ -2,6 +2,7 @@ package gift.order.controller;
 
 import gift.order.domain.CreateOrderRequest;
 import gift.order.domain.Order;
+import gift.order.domain.OrderCreateResponse;
 import gift.order.service.OrderService;
 import gift.util.CommonResponse;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class OrderController {
 
     @PostMapping("/orders")
     public ResponseEntity<?> createOrder(@RequestBody CreateOrderRequest createOrderRequest, @RequestHeader String accessToken) {
-        Order order = orderService.createOrder(createOrderRequest, accessToken);
+        OrderCreateResponse order = orderService.createOrder(createOrderRequest, accessToken);
         return ResponseEntity.ok().body(new CommonResponse<>(
                 order,
                 "주문 생성 성공",
