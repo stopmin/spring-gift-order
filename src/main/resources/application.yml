@@ -52,4 +52,5 @@ springdoc:
   model-and-view-allowed: true
   paths-to-match:
     - /api/v1/**
-출처: https://sjh9708.tistory.com/169 [데굴데굴 개발자의 기록:티스토리]
+    - /login/**
+
