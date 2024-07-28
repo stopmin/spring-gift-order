@@ -1,10 +1,13 @@
 CREATE TABLE users
 (
-    user_id  BIGINT AUTO_INCREMENT PRIMARY KEY,
-    role     VARCHAR(255) NOT NULL,
-    name     VARCHAR(255) NOT NULL,
-    email    VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
+    user_id           BIGINT AUTO_INCREMENT PRIMARY KEY,
+    role              VARCHAR(255) NOT NULL,
+    name              VARCHAR(255) NOT NULL,
+    email             VARCHAR(255) NOT NULL,
+    password          VARCHAR(255) NOT NULL,
+    profile_image_url VARCHAR(255),
+    kakao_id          BIGINT,
+    created_at        TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE wishlist
