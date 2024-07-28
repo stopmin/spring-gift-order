@@ -36,9 +36,9 @@ public class KakaoOauthController {
     }
 
 
+    // TODO: 프론트가 /login/oauth2/code/kakao 로 요청을 보내면 카카오 로그인을 진행하고, 프론트에게 토큰을 반환한다. -> 근데 프론트가 AccessToken을 받아서 백엔드한테 보내는게 맞는거같은데?
     @GetMapping("/login/oauth2/code/kakao")
     public ResponseEntity<?> kakaoOauthCallback(@RequestParam String code) {
-
         return ResponseEntity
                 .ok()
                 .body(new CommonResponse<>(
