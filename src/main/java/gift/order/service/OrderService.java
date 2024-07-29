@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
-    private final AllimService allimService;
+    private final KakaoAllimService allimService;
 
     private final WishListService wishListService;
     private final KakaoOauthService kakaoOauthService;
 
-    public OrderService(OrderRepository orderRepository, AllimService allimService, WishListService wishListService, KakaoOauthService kakaoOauthService) {
+    public OrderService(OrderRepository orderRepository, KakaoAllimService allimService, WishListService wishListService, KakaoOauthService kakaoOauthService) {
         this.orderRepository = orderRepository;
         this.allimService = allimService;
         this.wishListService = wishListService;

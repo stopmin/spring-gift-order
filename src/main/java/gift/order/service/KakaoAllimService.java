@@ -4,10 +4,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 @Service
-public class AllimService {
+public class KakaoAllimService {
     private final RestClient restClient;
 
-    public AllimService(RestClient restClient) {
+    public KakaoAllimService(RestClient restClient) {
         this.restClient = restClient;
     }
 
