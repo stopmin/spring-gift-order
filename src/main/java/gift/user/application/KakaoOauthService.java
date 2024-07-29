@@ -22,16 +22,16 @@ public class KakaoOauthService {
     @Value("${kakao.redirect.uri}")
     private String redirectUri;
 
-    @Value("${kakao.ouath.token.uri}")
+    @Value("${kakao.oauth.token.uri}")
     private String tokenUri;
 
-    @Value("${kakao.ouath.access.uri}")
+    @Value("${kakao.oauth.access.uri}")
     private String accessUri;
 
-    @Value("${kakao.ouath.profile.uri}")
+    @Value("${kakao.oauth.profile.uri}")
     private String profileUri;
 
-    @Value("${kakao.ouath.logout.uri}")
+    @Value("${kakao.oauth.logout.uri}")
     private String logoutUri;
 
     private final RestClient restClient;
