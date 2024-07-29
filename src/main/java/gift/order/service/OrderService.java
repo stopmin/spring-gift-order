@@ -27,7 +27,7 @@ public class OrderService {
         Long userId = kakaoOauthService.getKakaoUserProfile(accessToken).getId();
         wishListService.deleteProductFromWishList(userId, request.getOptionId());
 
-        Order order = orderRepository.save(new Order(userId, request.getOptionId(), request.getQuantity(), request.getMessage()));
+        Order order = orderRepository.save(new Order(userId, request));
         allimService.sendAllim(accessToken, order.toString());
 
         return order.toOrderCreateResponse();
