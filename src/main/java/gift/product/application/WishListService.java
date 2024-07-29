@@ -68,10 +68,11 @@ public class WishListService {
     }
 
     @Transactional
-    public void deleteProductFromWishList(Long userId, Long productId) {
+    public void deleteProductFromWishList(Long userId, Long optionId) {
         WishList wishList = wishListRepository.findByUserId(userId);
         if (wishList != null) {
-            wishList.removeWishListProduct(productId);
+            wishList.deleteProduct(optionId);
+            wishListRepository.save(wishList);
         } else {
             throw new ProductException(ErrorCode.WISHLIST_NOT_FOUND);
         }

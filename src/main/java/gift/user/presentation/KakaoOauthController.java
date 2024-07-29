@@ -36,9 +36,9 @@ public class KakaoOauthController {
     }
 
 
+    // TODO: 프론트가 할 일. 원래 code 이부분은 프론트에서 처리해야함
     @GetMapping("/login/oauth2/code/kakao")
     public ResponseEntity<?> kakaoOauthCallback(@RequestParam String code) {
-
         return ResponseEntity
                 .ok()
                 .body(new CommonResponse<>(

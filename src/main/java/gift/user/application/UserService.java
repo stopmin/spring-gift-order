@@ -48,12 +48,7 @@ public class UserService {
         } else if (request.getLoginType() == LoginType.KAKAO) {
             // 카카오 사용자 등록
             validateDuplicateKakaoUser(request.getKakaoId());
-
-            User user = new User();
-            user.setName(request.getName());
-            user.setProfileImageUrl(request.getProfileImageUrl());
-            user.setKakaoId(request.getKakaoId());
-            user.setLoginType(LoginType.KAKAO);
+            User user = new User(request.getName(), request.getProfileImageUrl(), request.getKakaoId());
             return userRepository.save(user);
         } else {
             throw new UserException(ErrorCode.INVALID_USER_TYPE);

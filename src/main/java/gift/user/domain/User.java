@@ -55,6 +55,7 @@ public class User {
         this.name = name;
         this.profileImageUrl = profileImageUrl;
         this.kakaoId = kakaoId;
+        this.loginType = LoginType.KAKAO;
     }
 
     public Long getId() {

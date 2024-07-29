@@ -1,4 +1,4 @@
-package gift.payment.presentation;
+package gift.payment.controller;
 
 import gift.payment.application.PaymentService;
 import gift.util.CommonResponse;
